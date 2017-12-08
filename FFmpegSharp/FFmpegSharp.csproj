@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6C4359B-766E-40EE-820C-FA7865CAC400}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FFmpegSharp</RootNamespace>
+    <AssemblyName>FFmpegSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Codes\CodeBase.cs" />
+    <Compile Include="Codes\CodeType.cs" />
+    <Compile Include="Codes\Flv.cs" />
+    <Compile Include="Codes\Jpg.cs" />
+    <Compile Include="Codes\M4A.cs" />
+    <Compile Include="Codes\Mp3.cs" />
+    <Compile Include="Codes\Mp4.cs" />
+    <Compile Include="Codes\Png.cs" />
+    <Compile Include="Codes\Wav.cs" />
+    <Compile Include="Codes\Wmv.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Directshow\DsDevice.cs" />
+    <Compile Include="Directshow\DsUuids.cs" />
+    <Compile Include="Executor\Encoder.cs" />
+    <Compile Include="Executor\IExecutor.cs" />
+    <Compile Include="Executor\Processor.cs" />
+    <Compile Include="Executor\Network.cs" />
+    <Compile Include="Executor\TargetType.cs" />
+    <Compile Include="Filters\AudioBitrateFilter.cs" />
+    <Compile Include="Filters\AudioChannelFilter.cs" />
+    <Compile Include="Filters\AudioRateFilter.cs" />
+    <Compile Include="Filters\DisableVideoFilter.cs" />
+    <Compile Include="Filters\Extentions.cs" />
+    <Compile Include="Filters\FilterBase.cs" />
+    <Compile Include="Filters\FilterType.cs" />
+    <Compile Include="Filters\IFilter.cs" />
+    <Compile Include="Filters\ResizeFilter.cs" />
+    <Compile Include="Filters\ResizeType.cs" />
+    <Compile Include="Filters\Resolution.cs" />
+    <Compile Include="Filters\VideoBitrateFilter.cs" />
+    <Compile Include="Filters\VideoRateFilter.cs" />
+    <Compile Include="Filters\WatermarkPosition.cs" />
+    <Compile Include="Filters\X264Filter.cs" />
+    <Compile Include="Filters\X264Preset .cs" />
+    <Compile Include="Filters\SegmentFilter.cs" />
+    <Compile Include="Filters\SnapshotFilter.cs" />
+    <Compile Include="Filters\ImageWatermarkFilter.cs" />
+    <Compile Include="Media\AudioInfo.cs" />
+    <Compile Include="Media\MediaStream.cs" />
+    <Compile Include="Media\StreamInfo.cs" />
+    <Compile Include="Media\StreamInfoBase.cs" />
+    <Compile Include="Media\StreamType.cs" />
+    <Compile Include="Media\TimeBase.cs" />
+    <Compile Include="Media\VideoInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\SizeUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="external\ffmpeg\x64\avcodec-56.dll" />
+    <Content Include="external\ffmpeg\x64\avdevice-56.dll" />
+    <Content Include="external\ffmpeg\x64\avfilter-5.dll" />
+    <Content Include="external\ffmpeg\x64\avformat-56.dll" />
+    <Content Include="external\ffmpeg\x64\avutil-54.dll" />
+    <Content Include="external\ffmpeg\x64\ffmpeg.exe" />
+    <Content Include="external\ffmpeg\x64\ffplay.exe" />
+    <Content Include="external\ffmpeg\x64\ffprobe.exe" />
+    <Content Include="external\ffmpeg\x64\postproc-53.dll" />
+    <Content Include="external\ffmpeg\x64\swresample-1.dll" />
+    <Content Include="external\ffmpeg\x64\swscale-3.dll" />
+    <Content Include="external\ffmpeg\x86\avcodec-57.dll" />
+    <Content Include="external\ffmpeg\x86\avdevice-57.dll" />
+    <Content Include="external\ffmpeg\x86\avfilter-6.dll" />
+    <Content Include="external\ffmpeg\x86\avformat-57.dll" />
+    <Content Include="external\ffmpeg\x86\avutil-55.dll" />
+    <Content Include="external\ffmpeg\x86\ffmpeg.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\ffmpeg\x86\ffplay.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\ffmpeg\x86\ffprobe.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\ffmpeg\x86\postproc-54.dll" />
+    <Content Include="external\ffmpeg\x86\swresample-2.dll" />
+    <Content Include="external\ffmpeg\x86\swscale-4.dll" />
+    <Content Include="lib-list.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
