@@ -3,7 +3,7 @@
 
 In c# with FFmpeg to record camera vedio and push its file stream to RTMP Server and we use VLC media player to play the network-stream.
 
-![Index-page](https://github.com/BoonyaCSharp-ASP/VedioFFmpegPushRTMP/raw/master/SampleApp/Images/a.png)
+![Live-Vedio](https://github.com/BoonyaCSharp-ASP/VedioFFmpegPushRTMP/raw/master/SampleApp/Images/a.png)
 
 
 
@@ -33,7 +33,7 @@ after extract the files, copy the contents of the 'bin' folder to the path '/ext
 
 ### By owner License
 
-[MIT](https://github.com/at0717/FFmpegSharp/blob/master/LICENSE)
+[License by ower](https://github.com/at0717/FFmpegSharp/blob/master/LICENSE)
 
 
 ## Nginx-RTMP server configuration
