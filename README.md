@@ -1,34 +1,14 @@
-### FFmpegSharp is a fluent api encapsulation of ffmpeg with C#
 
-## Encode media(with snapshot)
-```csharp
-var currentDir =
-new FileInfo(Uri.UnescapeDataString(new Uri(Assembly.GetExecutingAssembly().CodeBase).AbsolutePath));
+## Fast to know this project
 
-var inputPath = Path.Combine(appPath, "test.mov");
-var outputPath = Path.Combine(appPath, Guid.NewGuid().ToString());
-var image = Path.Combine(appPath, "logo.png");
+In c# with FFmpeg to record camera vedio and push its file stream to RTMP Server and we use VLC media player to play the network-stream.
 
-if (string.IsNullOrWhiteSpace(appPath))throw new ApplicationException("app path not found.");
+![Index-page](https://github.com/BoonyaCSharp-ASP/VedioFFmpegPushRTMP/raw/master/SampleApp/Images/a.png)
 
-
-var inputPath = Path.Combine(appPath, "test.mov");
-var outputPath = Path.Combine(appPath, Guid.NewGuid().ToString());
-
-Encoder.Create()
-	.WidthInput(inputPath)
-	.WithFilter(new X264Filter { Preset = X264Preset.Faster, ConstantQuantizer = 18 })
-	.WithFilter(new ImageWatermarkFilter(image, WatermarkPosition.TopRight))
-	.WithFilter(new ResizeFilter(Resolution.X720P))
-	.WithFilter(new SnapshotFilter(Path.Combine(appPath,"snapshot","out.png"),320,180,10))//with snapshot
-	.To<Mp4>(outputPath)
-	.Execute();
-
-```
 
 
 ## Push a file to RTMP Server
-```csharp
+```
 Network.Create()
 	.WithSource(inputPath)
 	.WithDest("rtmp://192.168.10.12/live/stream")
@@ -51,7 +31,7 @@ http://ffmpeg.zeranoe.com/builds/win64/shared/ffmpeg-20141117-git-3f07dd6-win64-
 after extract the files, copy the contents of the 'bin' folder to the path '/external/ffmpeg/x32(or x64)/'
 
 
-## License
+### By owner License
 
 [MIT](https://github.com/at0717/FFmpegSharp/blob/master/LICENSE)
 
