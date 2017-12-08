@@ -1,5 +1,5 @@
 
-## Fast to know this project
+## How to know this project mean to solve what problems?
 
 In c# with FFmpeg to record camera vedio and push its file stream to RTMP Server and we use VLC media player to play the network-stream.
 
