@@ -88,7 +88,10 @@
     <Compile Include="Media\TimeBase.cs" />
     <Compile Include="Media\VideoInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Application.cs" />
     <Compile Include="Utils\SizeUtils.cs" />
+    <Compile Include="Utils\Video.cs" />
+    <Compile Include="Utils\VideoAPI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="external\ffmpeg\x64\avcodec-56.dll" />
