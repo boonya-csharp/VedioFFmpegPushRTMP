@@ -1,5 +1,5 @@
 
-## How to know this project mean to solve what problems?
+## The project is going to solve what kind of problems?
 
 In c# with FFmpeg to record camera vedio and push its file stream to RTMP Server and we use VLC media player to play the network-stream.
 
@@ -183,4 +183,4 @@ http {
 
 }
 ```
-live server address:rtmp://host:1935/live
+Live server address looks like： rtmp://host:1935/live
