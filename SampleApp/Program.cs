@@ -8,6 +8,7 @@ using FFmpegSharp.Executor;
 using FFmpegSharp.Filters;
 using FFmpegSharp.Media;
 using System.Diagnostics;
+using FFmpegSharp.Utils;
 
 namespace SampleApp
 {
@@ -90,6 +91,11 @@ namespace SampleApp
 
             #endregion
             Console.WriteLine("直播结束.\n 按任意键进行退出！");
+
+
+            //测试声音设备录音
+            //Devices参考 http://www.ffmpeg.org/ffmpeg-devices.html
+            Recorder.Start("Microphone", "C://test.avi");
 
             Console.ReadKey();
         }

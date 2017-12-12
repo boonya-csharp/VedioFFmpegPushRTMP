@@ -1,21 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 //OS support:Windows 7, Windows Server 2003, Windows Server 2008, Windows Vista, Windows XP
-//using Microsoft.DirectX;
-//using Microsoft.DirectX.DirectSound;
+//Windows 10 integrated this  DirectX sdk in C:\Windows\Microsoft.NET\DirectX for Managed Code
+using Microsoft.DirectX.DirectSound;
 using System.Runtime.InteropServices;
+using System.Reflection;
 /// <summary>
 /// FFmpeg 音视频录制
 /// DirectX SDK 下载地址 https://www.microsoft.com/en-us/download/details.aspx?id=6812
 /// </summary>
 namespace FFmpegSharp.Utils
 {
-    class Recorder
+    public class Recorder
     {
         [DllImport("kernel32.dll")]
         static extern bool GenerateConsoleCtrlEvent(int dwCtrlEvent, int dwProcessGroupId);
@@ -34,19 +31,20 @@ namespace FFmpegSharp.Utils
         static Process p = new Process();
 
         // ffmpeg.exe实体文件路径
-        static string ffmpegPath = AppDomain.CurrentDomain.BaseDirectory + "ffmpeg\\ffmpeg.exe";
+        static string ffmpegPath = AppDomain.CurrentDomain.BaseDirectory + "external\\ffmpeg\\x64\\ffmpeg.exe";
 
         /// <summary>
         /// 获取声音输入设备列表
         /// </summary>
         /// <returns>声音输入设备列表</returns>
         /// OS support: Windows 7, Windows Server 2003, Windows Server 2008, Windows Vista, Windows XP
-        //public static CaptureDevicesCollection GetAudioList()
-        //{
-        //    CaptureDevicesCollection collection = new CaptureDevicesCollection();
+        /// Windows 10 integrated this  DirectX sdk in C:\Windows\Microsoft.NET\DirectX for Managed Code
+        public static CaptureDevicesCollection GetAudioList()
+        {
+            CaptureDevicesCollection collection = new CaptureDevicesCollection();
 
-        //    return collection;
-        //}
+            return collection;
+        }
 
         /// <summary>
         /// 功能: 开始录制
@@ -58,11 +56,15 @@ namespace FFmpegSharp.Utils
                 File.Delete(outFilePath);
             }
 
-            /*转码，视频录制设备：gdigrab；录制对象：桌面；
+            /*
+             * 转码，
+             * 视频录制设备：gdigrab；
+             * 录制对象：桌面；
              * 音频录制方式：dshow；
              * 视频编码格式：h.264；*/
             ProcessStartInfo startInfo = new ProcessStartInfo(ffmpegPath);
             startInfo.WindowStyle = ProcessWindowStyle.Normal;
+            startInfo.UseShellExecute = false;// 必须设置使用shell否则异常
             startInfo.Arguments = "-f gdigrab -framerate 15 -i desktop -f dshow -i audio=\"" + audioDevice + "\" -vcodec libx264 -preset:v ultrafast -tune:v zerolatency -acodec libmp3lame \"" + outFilePath + "\"";
 
             p.StartInfo = startInfo;
